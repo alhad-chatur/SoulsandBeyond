@@ -34,7 +34,7 @@ public class Movement : MonoBehaviour
  
     void Start()
     {
-        //appleanim = Animator.StringToHash("apple");
+        
         _characterAnimator = GetComponentInChildren<characterAnimator>();
         rb = GetComponent<Rigidbody>();
         inaction = new NewControls();
@@ -45,7 +45,7 @@ public class Movement : MonoBehaviour
         asur = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
+   
     void Update()
     {
         if (time < startTime)
@@ -65,7 +65,6 @@ public class Movement : MonoBehaviour
         {
             
             inputx = inaction.Player.Movement.ReadValue<float>();
-            // if (Input.GetButtonDown("Jump") && isgrounded == true)
             if (inaction.Player.Jump.WasPerformedThisFrame() && isgrounded == true)
             {
                 inputy = 1;
@@ -102,6 +101,8 @@ public class Movement : MonoBehaviour
         _characterAnimator.speedTarget = Mathf.Abs(inputx);
 
         transform.position += speed *Time.fixedDeltaTime;
+        // This part of code creates a list and when player collides with collactables
+        // add that object in list, give force to that collactable iin direction of button and then destroy it, i.e pop it from the scipt
         if (iscollision == true)
         {
             if (fruits.Count != 0)
@@ -165,6 +166,7 @@ public class Movement : MonoBehaviour
                 
         }
     }
+
     void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.CompareTag("apple"))
@@ -173,7 +175,7 @@ public class Movement : MonoBehaviour
 
             x = collision.gameObject;
 
-            fruits.Add(x);
+            fruits.Add(x); //adding collectables that collided with player to list
 
             x.GetComponent<BoxCollider>().enabled = false;
 

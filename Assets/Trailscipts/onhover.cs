@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 public class onhover : MonoBehaviour,IPointerEnterHandler, IPointerExitHandler
 {
     public RectTransform Button;
-   // Animator anim;
+   // Animator anim;       //using animator for giving pop up effect on hover but attaching to on every button is quite heavy.
    // private string onhoveranimaton = "hoveron";
    // private string Onhoveranimation1 = "hoveroff";
     // Start is called before the first frame update
@@ -32,7 +32,7 @@ public class onhover : MonoBehaviour,IPointerEnterHandler, IPointerExitHandler
         Vector3 small = new Vector3(0.16f, 0.16f, 0.16f);
         Vector3 big = new Vector3(0.14f, 0.14f, 0.14f);
         Button.localScale = Vector3.Slerp(big, small, 0.1f);
-        //  anim.SetBool(onhoveranimaton, false);
+        
     }
     // Update is called once per frame
     void Update()

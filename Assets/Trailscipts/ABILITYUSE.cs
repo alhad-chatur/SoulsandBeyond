@@ -13,10 +13,10 @@ public class ABILITYUSE : MonoBehaviour
     public int collectable_factors;
     public bool IskeyEnabled_w;
     [SerializeField]        private float newFactor = 1f;
-    // public GameObject sphere;
+   
     Movement collectable;
     NewControls _newControls;
-    // movements player;
+   
     private void Awake()
     {
         IskeyEnabled_w = true;
@@ -28,17 +28,14 @@ public class ABILITYUSE : MonoBehaviour
         _newControls.Player.Enable();
         image = GetComponent<Image>();
         collectable = FindObjectOfType<Movement>();
-       // Instantiate(firehumai,posImage.transform);
-        // player = FindObjectOfType<movements>();
-        //Vector3(285f, 3f, 4.88f,)
-      //  firehumai.transform.position = new Vector3(285f, 3f, 4.88f);
+     
     }
 
     // Update is called once per frame
     void Update()
     {
         collectable_factors = collectable.totalapples + 2;
-       // if (Input.GetKey(KeyCode.Z))
+     
         if(_newControls.Player.Rewind.ReadValue<float>()==1)
         {
             CurrentHealth -= Time.deltaTime* newFactor;

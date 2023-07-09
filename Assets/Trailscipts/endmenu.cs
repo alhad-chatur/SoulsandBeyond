@@ -21,14 +21,14 @@ public class endmenu : MonoBehaviour
     [SerializeField]public GameObject EMPTY;
     [SerializeField] public GameObject OBJ;
     [SerializeField] public GameObject post;
-    winnigmenu timehaiyar;
+    winnigmenu wingame;
     ProfileManager profile_manager;
 
 
     private void Start()
     {
         food = FindObjectOfType<Movement>();
-        timehaiyar = FindObjectOfType<winnigmenu>();
+        wingame = FindObjectOfType<winnigmenu>();
    
         profile_manager = FindObjectOfType<ProfileManager>();
        
@@ -52,7 +52,7 @@ public class endmenu : MonoBehaviour
             blur.SetActive(true);
             playername.text = profile_manager.ProfilesData.savedProfiles[profile_manager.ProfilesData.activePlayerProfileIndex].profileName;
           //  Cursor.lockState = CursorLockMode.Locked;
-            timecount.text = System.Math.Round(timehaiyar.Time1,2).ToString() + "Sec";
+            timecount.text = System.Math.Round(wingame.Time1,2).ToString() + "Sec";
             count.text = "X" + food.totalapples.ToString();
             dmanager.hasdied = true;
         }
